@@ -25,7 +25,7 @@ fi
 
 # Init container clusters
 echo "bx cs init"
-if bx cs init -ne 0
+if bx cs init 0
 then
   echo "Failed to initialize to Bluemix Container Service"
   exit 1

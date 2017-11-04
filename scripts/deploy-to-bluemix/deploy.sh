@@ -10,11 +10,7 @@ fi
 
 echo -e "Configuring vars"
 exp=$(bx cs cluster-config "$CLUSTER_NAME" | grep export)
-if bx cs cluster-config "$CLUSTER_NAME" -ne 0;
-then
-  echo "Cluster $CLUSTER_NAME not created or not ready."
-  exit 1
-fi
+bx cs cluster-config "$CLUSTER_NAME"
 eval "$exp"
 
 kubectl delete --ignore-not-found=true -f secrets.yaml
